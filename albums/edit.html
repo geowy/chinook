@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang=en>
+<title>Editing {{.Album.Title}} - Chinook</title>
+
+<h1>Editing {{.Album.Title}}</h1>
+
+<form method=post>
+<div><label>
+Name:
+<input type=text name=title value="{{.Album.Title}}">
+</label></div>
+
+<div><label>
+Artist:
+<select name=artist-id>
+{{range .Artists}}
+<option value={{.ArtistId}} {{if eq .ArtistId $.Album.ArtistId}}selected{{end}}>{{.Name}}</option>
+{{end}}
+</select>
+</label></div>
+
+<div><button type=submit>Save</button></div>
+</form>

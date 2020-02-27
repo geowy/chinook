@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang=en>
+<title>{{.Album.Title}} - Chinook</title>
+
+<h1>{{.Album.Title}}</h1>
+<p>By <a href="/artists/show?id={{.Album.ArtistId}}">{{.Album.ArtistName}}</a>
+
+<p><a href="/albums/edit?id={{.Album.AlbumId}}">Edit</a>
+
+<table>
+<thead>
+<tr>
+<th>Name
+<th>Genre
+<th>Composer
+<th>Length (ms)
+
+<tbody>
+{{range .Album.Tracks}}
+<tr>
+<td>{{.Name}}
+<td>{{.Genre}}
+<td>{{if .Composer}}{{.Composer}}{{end}}
+<td>{{.Milliseconds}}
+{{end}}
+</table>

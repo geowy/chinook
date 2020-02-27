@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang=en>
+<title>Albums - Chinook</title>
+
+<h1>Albums</h1>
+
+<table>
+<thead>
+<tr>
+<th>Album
+<th>Artist
+<th>Tracks
+<th>Length (ms)
+
+<tbody>
+{{range .Albums}}
+<tr>
+<td><a href="/albums/show?id={{.AlbumId}}">{{.Title}}</a>
+<td><a href="/artists/show?id={{.ArtistId}}">{{.ArtistName}}</a>
+<td>{{.TrackCount}}
+<td>{{.Milliseconds}}
+{{end}}
+
+<tfoot>
+<td>{{if .PrevPage}}<a href="albums?page={{.PrevPage}}">← Previous</a>{{end}}
+<td>
+<td>
+<td><a href="albums?page={{.NextPage}}">Next →</a>
+</table>
+
