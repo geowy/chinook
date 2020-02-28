@@ -5,4 +5,4 @@ FROM Artist
 ORDER BY Artist.Name
 LIMIT 25
 OFFSET (:page - 1) * 25
-
+;

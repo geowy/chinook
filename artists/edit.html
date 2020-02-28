@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang=en>
+<title>Editing {{.Artist.Name}} - Chinook</title>
+
+<h1>Editing {{.Artist.Name}}</h1>
+
+<form method=post>
+<div><label>
+Name:
+<input type=text name=name value="{{.Artist.Name}}">
+</label></div>
+
+<div><button type=submit>Save</button></div>
+</form>

@@ -1,6 +1,7 @@
 package artists
 
 import (
+	"errors"
 	"github.com/geowy/chinook/data"
 )
 
@@ -29,4 +30,28 @@ func QueryArtists(page int) []Artist {
 	}
 
 	return artists
+}
+
+func QueryArtist(id int) Artist {
+	row := data.Query("artists/query_artist.sql", id)
+	defer row.Close()
+
+	if !row.Next() {
+		panic(errors.New("Album not found"))
+	}
+
+	artist := Artist{}
+	err := row.Scan(
+		&artist.ArtistId,
+		&artist.Name,
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	return artist
+}
+
+func UpdateArtist(id int, name string) {
+	data.Exec("artists/update_artist.sql", name, id)
 }

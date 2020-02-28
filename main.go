@@ -48,6 +48,7 @@ func main() {
 	http.HandleFunc("/albums/show", panicRecovery(logging(albums.ShowAlbumHandler)))
 	http.HandleFunc("/albums/edit", panicRecovery(logging(albums.EditAlbumHandler)))
 	http.HandleFunc("/artists", panicRecovery(logging(artists.ArtistIndexHandler)))
+	http.HandleFunc("/artists/edit", panicRecovery(logging(artists.EditArtistHandler)))
 
 	log.Print("Server listening on http://localhost:8080/")
 	err := http.ListenAndServe(":8080", nil)
