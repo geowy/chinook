@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang=en>
+<title>Artists - Chinook</title>
+
+<h1>Artists</h1>
+
+<table>
+<thead>
+<tr>
+<th>Artist
+<th>
+
+<tbody>
+{{range .Artists}}
+<tr>
+<td>{{.Name}}
+<td><a href="/artists/edit?id={{.ArtistId}}">Edit</a>
+{{end}}
+
+<tfoot>
+<td>{{if .PrevPage}}<a href="artists?page={{.PrevPage}}">← Previous</a>{{end}}
+<td><a href="artists?page={{.NextPage}}">Next →</a>
+</table>
+
